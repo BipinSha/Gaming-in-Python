@@ -105,7 +105,7 @@ def initializeGrid():
 def drawGrid(currentIndex):
     r = 0
     c = 0
-    for i in range(width/blocks):
+    for i in range(int (width/blocks)):
         r += blocks
         c += blocks
         pygame.draw.line(display, players[currentIndex], (c, 0), (c, height))
@@ -226,8 +226,8 @@ def gameLoop():
                     close()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 x, y = pygame.mouse.get_pos()
-                i = x/blocks
-                j = y/blocks
+                i = int (x/blocks)
+                j = int (y/blocks)
                 if grid[i][j].color == players[currentPlayer] or grid[i][j].color == border:
                     turns += 1
                     addAtom(i, j, players[currentPlayer])
